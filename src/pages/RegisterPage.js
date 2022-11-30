@@ -1,26 +1,61 @@
-import React from "react";
+import React, {useState} from "react";
 import {Link} from "react-router-dom";
 
 const RegisterPage = () => {
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleFirstNameChange = (evt) => {
+        setFirstName(evt.target.value);
+    }
+    const handleLastNameChange = (evt) => {
+        setLastName(evt.target.value);
+    }
+    const handleUsernameChange = (evt) => {
+        setUsername(evt.target.value);
+    }
+    const handlePasswordChange = (evt) => {
+        setPassword(evt.target.value);
+    }
+
     return (
         <div className="col-md-6 col-md-offset-3">
             <h2>Register</h2>
             <form name="form">
                 <div className={'form-group'}>
                     <label htmlFor="firstName">First Name</label>
-                    <input type="text" className="form-control" name="firstName" value={''}/>
+                    <input type="text"
+                           className="form-control"
+                           name="firstName"
+                           value={firstName}
+                           onChange={handleFirstNameChange}
+                    />
                 </div>
                 <div className={'form-group'}>
                     <label htmlFor="lastName">Last Name</label>
-                    <input type="text" className="form-control" name="lastName" value={''} />
+                    <input type="text"
+                           className="form-control"
+                           name="lastName" value={lastName}
+                           onChange={handleLastNameChange}
+                    />
                 </div>
                 <div className={'form-group'}>
                     <label htmlFor="username">Username</label>
-                    <input type="text" className="form-control" name="username" value={''} />
+                    <input type="text"
+                           className="form-control"
+                           name="username" value={username}
+                           onChange={handleUsernameChange}
+                    />
                 </div>
                 <div className={'form-group'}>
                     <label htmlFor="password">Password</label>
-                    <input type="password" className="form-control" name="password" value={''} />
+                    <input type="password"
+                           className="form-control"
+                           name="password" value={password}
+                           onChange={handlePasswordChange}
+                    />
                 </div>
                 <div className="form-group">
                     <button className="btn btn-primary">Register</button>
